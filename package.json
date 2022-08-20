@@ -14,7 +14,7 @@
         "parcel": "^2.7.0"
     },
     "dependencies": {
-        "@lucidvm/shared": "link:../shared",
+        "@lucidvm/shared": "https://github.com/lucidvm/shared.git",
         "opus-decoder": "^0.5.2"
     }
 }
