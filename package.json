@@ -1,5 +1,5 @@
 {
-    "name": "@lucidvm/webapp-legacy",
+    "name": "@lucidvm/flashback",
     "version": "1.4.0",
     "description": "CollabVM webapp with hacked-in support for LucidVM extensions",
     "author": "CollabVM Developers, dither",
