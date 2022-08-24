@@ -1480,7 +1480,8 @@ $(function() {
 		return;
 	
 	// Instantiate client, using a websocket tunnel for communications.
-	tunnel = new Guacamole.WebSocketTunnel("ws://" + common.serverAddress + "/");
+	const proto = location.protocol === "https:" ? "wss:" : "ws:";
+	tunnel = new Guacamole.WebSocketTunnel(proto + "//" + common.serverAddress + "/");
 	
 	// Disable receive timeouts for debugging
 	if (common.DEBUG_NO_TIMEOUT)
