@@ -555,6 +555,9 @@ function setVoteStats(parameters) {
 function updateActions(parameters) {
 	// Turns enabled
 	if (parameters[0] === "1")
+		$("#turn-btn").show();
+	else
+		$("#turn-btn").hide();
 	
 	// Voting enabled
 	if (parameters[1] === "1")

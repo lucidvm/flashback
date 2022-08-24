@@ -105,9 +105,13 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.5.2.tgz#28f643fbc0bec30b07fbe95b137879b6b4d1c9c5"
   integrity sha512-zrBczSbXKxEyK2ijtbRdICDygRqWSRPpZMN5dD1T8VMEW5RIhIbwFWw2phDRXuBQdVDpSjalCIUMWMV2h3JaZA==
 
-"@lucidvm/shared@link:../shared":
-  version "0.0.0"
-  uid ""
+"@lucidvm/shared@https://github.com/lucidvm/shared.git":
+  version "0.1.1"
+  resolved "https://github.com/lucidvm/shared.git#cb6c11cc617f77d22c17c1df0b934b18edaad81d"
+  dependencies:
+    buffer "^6.0.3"
+    events "^3.3.0"
+    ws "^8.8.1"
 
 "@mischnic/json-sourcemap@^0.1.0":
   version "0.1.0"
