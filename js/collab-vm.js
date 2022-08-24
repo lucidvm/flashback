@@ -477,7 +477,7 @@ function updateVMList(list) {
 					var name =  this.getAttribute("href").substr(this.getAttribute("href").lastIndexOf('/')+1);
 					common.debugLog("connect " + name);
 					vmName = name;
-					initHurl("ws://" + common.serverAddress + "/audio", vmName);
+					//initHurl("ws://" + common.serverAddress + "/audio", vmName);
 					tunnel.sendMessage("connect", vmName);
 				}
 			});
