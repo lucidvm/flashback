@@ -22,6 +22,10 @@ export function extendedInit(guac, tunnel) {
         console.debug("stale token, requesting strategies anew");
         tunnel.sendMessage("auth", 0);
     };
+    guac.oninstance = (sw, ver, name, sysop, contact) => {
+        document.title = name;
+        $(".navbar-brand").text(name);
+    };
 }
 
 export function extendedSetup(tunnel) {
@@ -36,6 +40,9 @@ export function extendedSetup(tunnel) {
             // else, request supported auth strategies
             tunnel.sendMessage("auth", 0);
         }
+
+        // request instance info
+        tunnel.sendMessage("instance");
     }
 
     // set nick

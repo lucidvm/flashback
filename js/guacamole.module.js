@@ -1972,6 +1972,8 @@ Guacamole.Client = function(tunnel) {
     this.onauth_session = null;
     this.onauth_reject = null;
     this.onauth_stale = null;
+
+    this.oninstance = null;
 	
     /**
      * Returns the layer with the given index, creating it if necessary.
@@ -2087,6 +2089,10 @@ Guacamole.Client = function(tunnel) {
                         guac_client.onauth_stale();
                     break;
             }
+        },
+
+        instance(param) {
+            guac_client.oninstance(...param);
         },
 
         // collabvm extensions
