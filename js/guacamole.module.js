@@ -1,4 +1,4 @@
-import { Codebooks, LECConduit, GuacConduit, bonk } from "@lucidvm/shared";
+import { Codebooks, LECConduit, GuacConduit, bonk, ensureNumber, GatewayCap } from "@lucidvm/shared";
 
 export function GetGuacamole() {
 /*
@@ -6112,18 +6112,22 @@ Guacamole.WebSocketTunnel = function(tunnelURL) {
             for (const instr of instrs) {
                 const opcode = instr.shift();
                 switch (opcode) {
-                    case "extend":
-                        if (instr[0] == "lucid") {
-                            const lvl = instr[1];
-                            // we support lucid-1
-                            tunnel.sendMessage("extend", "lucid", 1);
-                            if (lvl >= 1) {
-                                tunnel.level = 1;
-                                tunnel.sendMessage("upgrade", "lec");
-                            }
-                            if (tunnel.onextend) {
-                                tunnel.onextend(lvl);
-                            }
+                    case "cap":
+                        const f = ensureNumber(instr.shift());
+                        switch (f) {
+                            case 0:
+                                // TODO: properly implement caps
+                                tunnel.sendMessage("cap", 1, ...[
+                                    GatewayCap.LECTunnel,
+                                    GatewayCap.Auth,
+                                    GatewayCap.Instance
+                                ]);
+                                break;
+                            case 1:
+                                conduit = new LECConduit(Codebooks.CVMP);
+                                if (tunnel.onupgrade) {
+                                    tunnel.onupgrade("lec");
+                                }
                         }
                         break;
                     case "upgrade":
