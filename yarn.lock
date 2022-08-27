@@ -107,7 +107,7 @@
 
 "@lucidvm/shared@https://github.com/lucidvm/shared.git":
   version "0.1.3"
-  resolved "https://github.com/lucidvm/shared.git#105141a415012a4f9aa629a8c45316b346601f2c"
+  resolved "https://github.com/lucidvm/shared.git#883646db1fd291c021b5a8daddb8795ffcf91ec4"
   dependencies:
     buffer "^6.0.3"
     events "^3.3.0"
@@ -1014,9 +1014,9 @@ dotenv@^7.0.0:
   integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
 
 electron-to-chromium@^1.4.202:
-  version "1.4.230"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.230.tgz#666909fdf5765acb1348b69752ee9955dc1664b7"
-  integrity sha512-3pwjAK0qHSDN9+YAF4fJknsSruP7mpjdWzUSruIJD/JCH77pEh0SorEyb3xVaKkfwk2tzjOt2D8scJ0KAdfXLA==
+  version "1.4.231"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.231.tgz#ae6de219c20aa690bc3d217ff151b208a9bd8ed6"
+  integrity sha512-E8WsUC60chToZUfxvVUXBb1U/mR/Df3GFX+mO3edtQnRTUt6L2XgpqBVWcGD/xrzQdINL1g/CEBPPn0YJ86Y6Q==
 
 entities@^2.0.0:
   version "2.2.0"

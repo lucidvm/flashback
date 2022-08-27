@@ -6,34 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="robots" content="noindex">
 
-	<!--<meta property="og:title" content="Control Collaborative Virtual Machines!"/>
-		<meta property="og:url" content="http://computernewb.com/collab-vm"/>
-		<meta property="og:description" content="Control a computer (Windows, Linux, MacOS, etc) from your browser, for 18 seconds at a time, with strangers!"/>
-		<meta property="og:image" content="http://computernewb.com/starter.jpg"/>-->
 	<title>LucidVM</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<!-- inject:css -->
+
 	<link rel="stylesheet" type="text/css" href="./main.css" />
-	<!-- endinject -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
-	<!-- inject:js -->
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<script type="module" src="../js/collab-vm.js"></script>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.1/holder.min.js"></script>-->
-	<!-- endinject -->
-	<!-- inject:win-logo-ascii -->
-	<!-- endinject -->
 </head>
 
 <body>
-	<!-- inject:navbar -->
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container-fluid">
 			<div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -42,19 +29,23 @@
 				<div class="navbar-brand" style="cursor:default">LucidVM</div>
 			</div>
 			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<!--<li><a href="/collab-vm/" id="home-btn">Home</a></li>
-					<li><a href="/collab-vm/faq" target="_blank">FAQ</a></li>
-					<li><a href="/collab-vm/news" target="_blank">News</a></li>
-					<li><a href="/collab-vm/rules" target="_blank">Rules</a></li>
-					<li><a href="https://discord.gg/ebaCsRrEry">Discord</a></li>
-					<li><a href="https://reddit.com/r/collabvm" target="_blank">Subreddit</a></li>-->
-				</ul>
-				<ul id="lucid-tagline" class="navbar-text navbar-right" style="margin-right:0"></ul>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="navbar-tagline" style="padding-left:0!important"></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" style="margin-right:0">
+                    <li><a style="padding-left:0!important;padding-right:0!important">
+                        <span class="text-muted">Client:</span>
+                        <span class="name-client">flashback 1.4.0</span>
+                        <span class="text-muted">&bull;</span>
+                        <span class="text-muted">Server:</span>
+                        <span class="name-server">CollabVM 1.x or compatible</span>
+                    </a></li>
+                </ul>
 			</div>
 		</div>
 	</nav>
-	<!-- endinject -->
 	<div class="modal fade" id="username-modal" tabindex="-1" role="dialog" aria-labelledby="username-modal-label">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -184,10 +175,7 @@
 
 		</div>
 		<div id="vm-view" style="display: none;">
-			<div class="page-header text-center" style="margin-top: -20px;">
-				<h2><small>Click the screen to request a turn and control the computer!</small></h2>
-			</div>
-			<div id="display-outer">
+			<div id="display-outer" style="margin-top:0">
 				<div id="display"></div>
 				<div style="display:none;" class="alert alert-info alert-dismissible" role="alert" id="vote-alert">
 					Do you want to reset the VM?
@@ -292,6 +280,11 @@
 			<br>
 		</div>
 	</div>
+	<footer class="footer navbar-fixed-bottom">
+		<div class="container-fluid">
+			
+		</div>
+	</footer>
 </body>
 
 </html>

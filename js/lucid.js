@@ -25,12 +25,15 @@ export function extendedInit(guac, tunnel) {
     guac.oninstance = (sw, ver, name, sysop, contact) => {
         document.title = name;
         $(".navbar-brand").text(name);
+        $(".name-server").text(`${sw} ${ver}`);
+    };
+    guac.onqotd = quote => {
+        $(".navbar-tagline").text(quote);
     };
 }
 
 export function extendedSetup(tunnel) {
-    // if server supports lucid-1 or greater
-    if (tunnel.level >= 1) {
+    if (tunnel.caps["auth"]) {
         const token = getCookie("token");
         if (token != null) {
             // send session token if we have it
@@ -40,9 +43,13 @@ export function extendedSetup(tunnel) {
             // else, request supported auth strategies
             tunnel.sendMessage("auth", 0);
         }
-
+    }
+    if (tunnel.caps["instance"]) {
         // request instance info
         tunnel.sendMessage("instance");
+    }
+    if (tunnel.caps["lucid:qotd"]) {
+        tunnel.sendMessage("qotd");
     }
 
     // set nick
@@ -61,11 +68,3 @@ export function extendedSetup(tunnel) {
         tunnel.sendMessage("list");
     }
 }
-
-$(() => {
-    const taglines = [
-        "Anniversary Edition",
-        "¿Donde mi los huevos?"
-    ];
-    $("#lucid-tagline").text(taglines[Math.floor(Math.random() * taglines.length)]);
-});

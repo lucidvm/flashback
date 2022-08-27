@@ -1974,6 +1974,7 @@ Guacamole.Client = function(tunnel) {
     this.onauth_stale = null;
 
     this.oninstance = null;
+    this.onqotd = null;
 	
     /**
      * Returns the layer with the given index, creating it if necessary.
@@ -2093,6 +2094,10 @@ Guacamole.Client = function(tunnel) {
 
         instance(param) {
             guac_client.oninstance(...param);
+        },
+
+        qotd(param) {
+            guac_client.onqotd(...param);
         },
 
         // collabvm extensions
@@ -5982,7 +5987,7 @@ Guacamole.WebSocketTunnel = function(tunnelURL) {
 
     }
 
-    this.level = 0;
+    this.caps = { };
 	
 	this.sendRawMessage = function(message) {
 		socket.send(message);
@@ -6116,18 +6121,25 @@ Guacamole.WebSocketTunnel = function(tunnelURL) {
                         const f = ensureNumber(instr.shift());
                         switch (f) {
                             case 0:
-                                // TODO: properly implement caps
-                                tunnel.sendMessage("cap", 1, ...[
+                                console.debug("caps advertise", instr);
+                                tunnel.caps = Object.fromEntries(instr.map(x => [x, true]));
+                                tunnel.sendMessage("cap", 1, ...([
                                     GatewayCap.LECTunnel,
                                     GatewayCap.Auth,
-                                    GatewayCap.Instance
-                                ]);
+                                    GatewayCap.Instance,
+                                    GatewayCap.QOTD
+                                ].filter(x => instr.indexOf(x) !== -1)));
                                 break;
                             case 1:
+                                console.debug("caps confirm");
                                 conduit = new LECConduit(Codebooks.CVMP);
                                 if (tunnel.onupgrade) {
                                     tunnel.onupgrade("lec");
                                 }
+                                break;
+                            case 2:
+                                console.debug("caps reject!", instr[0]);
+                                break;
                         }
                         break;
                     case "upgrade":
