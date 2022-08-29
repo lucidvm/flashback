@@ -6,7 +6,7 @@
     "license": "Apache-2.0",
     "private": true,
     "scripts": {
-        "build": "parcel build html/index.html"
+        "build": "parcel build --public-url . html/index.html"
     },
     "devDependencies": {
         "buffer": "^6.0.3",

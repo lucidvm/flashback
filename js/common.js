@@ -1,6 +1,6 @@
 // CollabVM webapp configuration
 
-const root="/";
+const root="";
 
 export default {
 	DEBUG: false,
