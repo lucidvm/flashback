@@ -6132,9 +6132,11 @@ Guacamole.WebSocketTunnel = function(tunnelURL) {
                                 break;
                             case 1:
                                 console.debug("caps confirm");
-                                conduit = new LECConduit(Codebooks.CVMP);
-                                if (tunnel.onupgrade) {
-                                    tunnel.onupgrade("lec");
+                                if (tunnel.caps.indexOf(GatewayCap.LECTunnel) >= 0) {
+                                    conduit = new LECConduit(Codebooks.CVMP);
+                                    if (tunnel.onupgrade) {
+                                        tunnel.onupgrade("lec");
+                                    }   
                                 }
                                 break;
                             case 2:
