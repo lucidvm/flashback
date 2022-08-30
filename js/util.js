@@ -7,7 +7,7 @@ export function getCookie(cname) {
 		if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
 	}
 	return "";*/
-	return localStorage[cname];
+	return localStorage["flashback_" + cname];
 }
 
 export function setCookie(cname, cvalue, exdays) {
@@ -15,5 +15,5 @@ export function setCookie(cname, cvalue, exdays) {
 	d.setTime(d.getTime() + (exdays*24*60*60*1000));
 	var expires = "expires="+d.toUTCString();
 	document.cookie = cname + "=" + cvalue + "; " + expires;*/
-	localStorage[cname] = cvalue;
+	localStorage["flashback_" + cname] = cvalue;
 }
